@@ -145,7 +145,7 @@ export default function Navbar({
   };
 
   return (
-    <header className="border-b border-zinc-800 bg-[#000000]/70 backdrop-blur-md sticky top-0 z-40 px-6 py-3.5 flex items-center justify-between shadow-2xl shrink-0 text-white animate-fade-in" id="app-header">
+    <header className="border-b border-zinc-800 bg-[#000000]/70 backdrop-blur-md sticky top-0 z-40 px-3 md:px-6 py-3.5 flex items-center justify-between shadow-2xl shrink-0 text-white animate-fade-in" id="app-header">
       <div className="flex items-center space-x-3">
         <div className="bg-gradient-to-br from-indigo-600 to-indigo-800 text-white rounded-lg px-2.5 py-1 flex items-center justify-center font-black text-xs shadow-md tracking-tight">
           i<span className="text-zinc-300">.ai</span>
@@ -183,7 +183,7 @@ export default function Navbar({
 
               {showOpsDropdown && (
                 <div 
-                  className="absolute right-0 mt-2.5 w-72 bg-[#09090b]/95 backdrop-blur-md border border-zinc-800 rounded-xl shadow-2xl p-2.5 z-50 text-white animate-fade-in animate-scale-in"
+                  className="absolute right-0 mt-2.5 w-[90vw] max-w-72 bg-[#09090b]/95 backdrop-blur-md border border-zinc-800 rounded-xl shadow-2xl p-2.5 z-50 text-white animate-fade-in animate-scale-in"
                   id="header-ops-dropdown-panel"
                 >
                   <div className="px-2 py-1.5 border-b border-zinc-900 mb-2">
@@ -262,7 +262,7 @@ export default function Navbar({
 
               {showThemeDropdown && (
                 <div 
-                  className="absolute right-0 mt-2.5 w-64 bg-[#09090b]/95 backdrop-blur-md border border-zinc-800 rounded-xl shadow-2xl p-2.5 z-50 text-white animate-fade-in animate-scale-in"
+                  className="absolute right-0 mt-2.5  w-[90vw] max-w-64 bg-[#09090b]/95 backdrop-blur-md border border-zinc-800 rounded-xl shadow-2xl p-2.5 z-50 text-white animate-fade-in animate-scale-in"
                   id="header-theme-dropdown-panel"
                 >
                   <div className="px-2 py-1.5 border-b border-zinc-900 mb-2">
@@ -341,8 +341,8 @@ export default function Navbar({
 
       {/* Auth Modal overlay */}
       {showAuthModal && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 p-4 animate-fade-in">
-          <div className="glass-panel rounded-2xl max-w-sm w-full shadow-2xl border border-zinc-800 overflow-x-hidden text-zinc-100 relative" id="auth-modal-content">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-start md:items-center justify-center z-50 p-4 overflow-y-auto animate-fade-in">
+          <div className="glass-panel rounded-2xl max-w-sm w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-zinc-800 overflow-x-hidden text-zinc-100 relative">
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-50" />
             <div className="bg-gradient-to-b from-zinc-900/60 to-transparent p-5 text-center border-b border-zinc-800/80">
               <h3 className="text-sm font-bold tracking-tight text-white">Academic Portal Auth</h3>
