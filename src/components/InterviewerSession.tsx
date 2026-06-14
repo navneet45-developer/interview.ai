@@ -269,7 +269,7 @@ export default function InterviewerSession({
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Camera preview */}
-            <div className="bg-slate-900 rounded overflow-hidden relative aspect-video flex flex-col justify-between p-3.5 shadow-inner border border-slate-800">
+            <div className="bg-slate-900 rounded overflow-x-hidden relative aspect-video flex flex-col justify-between p-3.5 shadow-inner border border-slate-800">
               <video ref={videoRef} autoPlay playsInline muted className="absolute inset-0 h-full w-full object-cover scale-x-[-1]" />
               <div className="z-10 bg-slate-900/70 backdrop-blur-xs px-2 py-1 rounded text-[9px] font-mono text-emerald-400 border border-emerald-500/20 mr-auto flex items-center gap-1.5 animate-pulse">
                 <Video className="h-3 w-3" /> VIDEO FEED ESTABLISHED
@@ -333,7 +333,7 @@ export default function InterviewerSession({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Video + live tracker */}
             <div className="md:col-span-1 space-y-3">
-              <div className="bg-slate-900 aspect-video rounded overflow-hidden relative shadow-sm border border-slate-800">
+              <div className="bg-slate-900 aspect-video rounded overflow-x-hidden relative shadow-sm border border-slate-800">
                 <video ref={videoRef} autoPlay playsInline muted className="absolute inset-0 h-full w-full object-cover scale-x-[-1]" />
                 {/* Compact badge overlay */}
                 <div className="absolute top-2 left-2 z-10">

@@ -90,7 +90,7 @@ export default function ReplayPlayer({ report, onBack }: ReplayPlayerProps) {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4" id="audio-video-transcription-studio">
         {/* Visual player loop simulation */}
         <div className="lg:col-span-1 space-y-3">
-          <div className="bg-slate-950 aspect-video rounded overflow-hidden relative shadow-sm border border-slate-900 flex flex-col justify-end p-3.5">
+          <div className="bg-slate-950 aspect-video rounded overflow-x-hidden relative shadow-sm border border-slate-900 flex flex-col justify-end p-3.5">
             {/* Visual simulation of high-fidelity facial focus contours */}
             <div className={`absolute inset-0 bg-radial-gradient flex items-center justify-center transition-all ${isPlaying ? 'bg-slate-900/40' : 'bg-slate-900/95'}`}>
               <div className="relative flex items-center justify-center h-20 w-20 border border-white/10 rounded-full animate-spin duration-10000">
@@ -284,7 +284,7 @@ export default function ReplayPlayer({ report, onBack }: ReplayPlayerProps) {
       </div>
 
       {/* Step-by-Step Personalized Action Plan / Roadmap */}
-      <div className="bg-slate-900 text-white rounded-lg p-5 border border-slate-800 shadow-sm relative overflow-hidden" id="career-improvement-plan">
+      <div className="bg-slate-900 text-white rounded-lg p-5 border border-slate-800 shadow-sm relative overflow-x-hidden" id="career-improvement-plan">
         <div className="absolute right-0 bottom-0 bg-blue-600/5 h-44 w-44 rounded-full blur-xl pointer-events-none" />
         
         <div className="relative space-y-3">

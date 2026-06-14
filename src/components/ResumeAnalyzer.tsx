@@ -172,7 +172,7 @@ export default function ResumeAnalyzer({ currentUser, onSelectResumeInterview, o
       ) : (
         /* Analysis Results Page */
         <div className="space-y-5 animate-fade-in">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 bg-slate-900 text-white rounded-lg p-5 border border-slate-800 shadow-xs relative overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 bg-slate-900 text-white rounded-lg p-5 border border-slate-800 shadow-xs relative overflow-x-hidden">
             <div className="absolute right-0 bottom-0 h-20 w-20 bg-blue-500/10 rounded-full blur-xl pointer-events-none" />
             
             <div className="md:col-span-3 space-y-1.5">

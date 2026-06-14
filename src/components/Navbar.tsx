@@ -342,7 +342,7 @@ export default function Navbar({
       {/* Auth Modal overlay */}
       {showAuthModal && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 p-4 animate-fade-in">
-          <div className="glass-panel rounded-2xl max-w-sm w-full shadow-2xl border border-zinc-800 overflow-hidden text-zinc-100 relative" id="auth-modal-content">
+          <div className="glass-panel rounded-2xl max-w-sm w-full shadow-2xl border border-zinc-800 overflow-x-hidden text-zinc-100 relative" id="auth-modal-content">
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-50" />
             <div className="bg-gradient-to-b from-zinc-900/60 to-transparent p-5 text-center border-b border-zinc-800/80">
               <h3 className="text-sm font-bold tracking-tight text-white">Academic Portal Auth</h3>

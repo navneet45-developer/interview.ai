@@ -247,7 +247,7 @@ export default function AdminPanel({ currentUser }: AdminPanelProps) {
   };
 
   return (
-    <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden" id="admin-panel-container">
+    <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-x-hidden" id="admin-panel-container">
       {/* 1. Header banner */}
       <div className="bg-slate-900 px-6 py-5 text-white flex flex-col md:flex-row md:items-center md:justify-between border-b border-slate-800 gap-4">
         <div>
@@ -505,7 +505,7 @@ export default function AdminPanel({ currentUser }: AdminPanelProps) {
                 </form>
 
                 {/* Directory table */}
-                <div className="border border-slate-200 rounded-xl overflow-hidden" id="users-table-frame">
+                <div className="border border-slate-200 rounded-xl overflow-x-hidden" id="users-table-frame">
                   {usersList.length === 0 ? (
                     <div className="py-12 text-center text-slate-400 bg-slate-50 font-mono text-xs">
                       No customer account matched criteria. Try clear the queries parameters filters.
@@ -605,7 +605,7 @@ export default function AdminPanel({ currentUser }: AdminPanelProps) {
             {/* TAB: RESUMES ARCHIVES */}
             {activeSubTab === 'resumes' && (
               <div className="space-y-4">
-                <div className="border border-slate-200 rounded-xl overflow-hidden" id="resumes-table-frame">
+                <div className="border border-slate-200 rounded-xl overflow-x-hidden" id="resumes-table-frame">
                   {resumesList.length === 0 ? (
                     <div className="py-12 text-center text-slate-400 bg-slate-50 font-mono text-xs">
                       No CV records analyzed by candidates in this MongoDB yet.
@@ -676,7 +676,7 @@ export default function AdminPanel({ currentUser }: AdminPanelProps) {
             {/* TAB: INTERVIEWS LOOP */}
             {activeSubTab === 'interviews' && (
               <div className="space-y-4">
-                <div className="border border-slate-200 rounded-xl overflow-hidden" id="interviews-table-frame">
+                <div className="border border-slate-200 rounded-xl overflow-x-hidden" id="interviews-table-frame">
                   {interviewsList.length === 0 ? (
                     <div className="py-12 text-center text-slate-400 bg-slate-50 font-mono text-xs">
                       No speech loops or mock sessions performed yet in this deployment database.

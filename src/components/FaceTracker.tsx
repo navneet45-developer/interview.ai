@@ -118,7 +118,7 @@ export default function FaceTracker({ videoRef, isActive, onStats, compact = fal
           <span className="text-slate-400">Eye Contact</span>
           <span className={eyeColor}>{currentFrame.eyeContactScore}%</span>
         </div>
-        <div className="bg-slate-700 rounded-full h-1.5 overflow-hidden">
+        <div className="bg-slate-700 rounded-full h-1.5 overflow-x-hidden">
           <div
             className={`h-full rounded-full transition-all duration-300 ${
               currentFrame.eyeContactScore >= 70

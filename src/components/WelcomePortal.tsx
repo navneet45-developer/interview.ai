@@ -104,11 +104,11 @@ export default function WelcomePortal({ onUserUpdate }: WelcomePortalProps) {
 
   return (
     <div 
-      className="relative min-h-[calc(100vh-2rem)] flex items-center justify-center p-4 md:p-12 overflow-hidden bg-[#030303]" 
+      className="relative min-h-[calc(100vh-2rem)] flex items-center justify-center p-4 md:p-12 overflow-x-hidden bg-[#030303]" 
       id="welcome-portal-stage"
     >
       {/* Immersive Background Decor */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 z-0 overflow-x-hidden pointer-events-none">
         <div className="absolute top-[5%] right-[5%] w-[40vw] h-[40vw] rounded-full bg-indigo-600/10 blur-[130px] animate-pulse" />
         <div className="absolute bottom-[5%] left-[5%] w-[35vw] h-[35vw] rounded-full bg-violet-600/10 blur-[110px]" />
         <div className="absolute inset-0 opacity-20 subtle-grid" />
@@ -220,7 +220,7 @@ export default function WelcomePortal({ onUserUpdate }: WelcomePortalProps) {
           className="lg:col-span-6 w-full max-w-md mx-auto" 
           id="welcome-interactive-card"
         >
-          <div className="glass-panel rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl relative">
+          <div className="glass-panel rounded-2xl overflow-x-hidden border border-zinc-800 shadow-2xl relative">
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-50" />
             
             <div className="p-6 bg-gradient-to-b from-zinc-900/40 to-transparent border-b border-zinc-800 text-center">

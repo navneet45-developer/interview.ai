@@ -79,15 +79,15 @@ function getDynamicBackground(tab: string, activeTheme: string): { bgClass: stri
   const textValue = isLight ? 'text-slate-900' : 'text-zinc-100';
 
   return {
-    bgClass: `${bgValue} ${textValue} relative overflow-hidden transition-colors duration-550`,
+    bgClass: `${bgValue} ${textValue} relative overflow-x-hidden transition-colors duration-550`,
     decorNode: (
-      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0" id="ambient-cosmos-backdrop">
+      <div className="absolute inset-0 pointer-events-none overflow-x-hidden z-0" id="ambient-cosmos-backdrop">
         {/* Subtle grid pattern layer */}
         <div className="absolute inset-0 subtle-grid opacity-25" />
         
         {/* Glowing Aurora Node 1 */}
         <div 
-          className={`aurora-bg w-[500px] h-[500px] bg-gradient-to-tr ${accents.glow1}`} 
+          className={`aurora-bg w-full max-w-md h-[500px] bg-gradient-to-tr ${accents.glow1}`} 
           style={{ 
             top: '-5%', 
             left: '10%',
@@ -256,7 +256,7 @@ export default function App() {
   const { bgClass, decorNode } = getDynamicBackground(currentTab, activeTheme);
 
   return (
-    <div className={`min-h-screen flex flex-col font-sans transition-all duration-700 theme-${activeTheme} ${bgClass}`} id="app-viewport">
+    <div className={`min-min-h-screen flex flex-col font-sans transition-all duration-700 theme-${activeTheme} ${bgClass}`} id="app-viewport">
       {/* Interactive cursor glow tracking circle */}
       {currentUser && (
         <div 

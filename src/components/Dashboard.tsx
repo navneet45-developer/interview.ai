@@ -159,7 +159,7 @@ export default function Dashboard({ currentUser, onSelectRole, onSelectReplay }:
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="glass-panel p-4 rounded-xl flex flex-col justify-between shadow-lg relative group overflow-hidden"
+          className="glass-panel p-4 rounded-xl flex flex-col justify-between shadow-lg relative group overflow-x-hidden"
         >
           <div className="absolute top-0 right-0 w-12 h-12 bg-emerald-500/5 rounded-bl-full group-hover:bg-emerald-500/10 transition-colors" />
           <div className="flex items-center justify-between">
@@ -172,7 +172,7 @@ export default function Dashboard({ currentUser, onSelectRole, onSelectReplay }:
             <span className="text-2xl font-extrabold text-emerald-400 font-mono">{activeStats.technicalAverage}</span>
             <span className="text-[10px] text-zinc-500 font-mono">/ 10.0</span>
           </div>
-          <div className="w-full bg-zinc-900 h-1 rounded-full mt-3 overflow-hidden">
+          <div className="w-full bg-zinc-900 h-1 rounded-full mt-3 overflow-x-hidden">
             <div 
               className="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full" 
               style={{ width: `${(activeStats.technicalAverage / 10) * 100}%` }}
@@ -185,7 +185,7 @@ export default function Dashboard({ currentUser, onSelectRole, onSelectReplay }:
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.05 }}
-          className="glass-panel p-4 rounded-xl flex flex-col justify-between shadow-lg relative group overflow-hidden"
+          className="glass-panel p-4 rounded-xl flex flex-col justify-between shadow-lg relative group overflow-x-hidden"
         >
           <div className="absolute top-0 right-0 w-12 h-12 bg-blue-500/5 rounded-bl-full group-hover:bg-blue-500/10 transition-colors" />
           <div className="flex items-center justify-between">
@@ -198,7 +198,7 @@ export default function Dashboard({ currentUser, onSelectRole, onSelectReplay }:
             <span className="text-2xl font-extrabold text-blue-400 font-mono">{activeStats.communicationAverage}</span>
             <span className="text-[10px] text-zinc-500 font-mono">/ 10.0</span>
           </div>
-          <div className="w-full bg-zinc-900 h-1 rounded-full mt-3 overflow-hidden">
+          <div className="w-full bg-zinc-900 h-1 rounded-full mt-3 overflow-x-hidden">
             <div 
               className="h-full bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full" 
               style={{ width: `${(activeStats.communicationAverage / 10) * 100}%` }}
@@ -211,7 +211,7 @@ export default function Dashboard({ currentUser, onSelectRole, onSelectReplay }:
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="glass-panel p-4 rounded-xl flex flex-col justify-between shadow-lg relative group overflow-hidden"
+          className="glass-panel p-4 rounded-xl flex flex-col justify-between shadow-lg relative group overflow-x-hidden"
         >
           <div className="absolute top-0 right-0 w-12 h-12 bg-amber-500/5 rounded-bl-full group-hover:bg-amber-500/10 transition-colors" />
           <div className="flex items-center justify-between">
@@ -224,7 +224,7 @@ export default function Dashboard({ currentUser, onSelectRole, onSelectReplay }:
             <span className="text-2xl font-extrabold text-amber-400 font-mono">{activeStats.confidenceAverage}</span>
             <span className="text-[10px] text-zinc-500 font-mono">/ 10.0</span>
           </div>
-          <div className="w-full bg-zinc-900 h-1 rounded-full mt-3 overflow-hidden">
+          <div className="w-full bg-zinc-900 h-1 rounded-full mt-3 overflow-x-hidden">
             <div 
               className="h-full bg-gradient-to-r from-amber-500 to-yellow-400 rounded-full" 
               style={{ width: `${(activeStats.confidenceAverage / 10) * 100}%` }}
@@ -237,7 +237,7 @@ export default function Dashboard({ currentUser, onSelectRole, onSelectReplay }:
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.15 }}
-          className="glass-panel p-4 rounded-xl flex flex-col justify-between shadow-lg relative group overflow-hidden"
+          className="glass-panel p-4 rounded-xl flex flex-col justify-between shadow-lg relative group overflow-x-hidden"
         >
           <div className="absolute top-0 right-0 w-12 h-12 bg-purple-500/5 rounded-bl-full group-hover:bg-purple-500/10 transition-colors" />
           <div className="flex items-center justify-between">
@@ -250,7 +250,7 @@ export default function Dashboard({ currentUser, onSelectRole, onSelectReplay }:
             <span className="text-2xl font-extrabold text-purple-400 font-mono">{activeStats.eyeContactAverage}%</span>
             <span className="text-[10px] text-zinc-500 font-mono">interest</span>
           </div>
-          <div className="w-full bg-zinc-900 h-1 rounded-full mt-3 overflow-hidden">
+          <div className="w-full bg-zinc-900 h-1 rounded-full mt-3 overflow-x-hidden">
             <div 
               className="h-full bg-gradient-to-r from-purple-500 to-fuchsia-400 rounded-full" 
               style={{ width: `${activeStats.eyeContactAverage}%` }}
@@ -263,7 +263,7 @@ export default function Dashboard({ currentUser, onSelectRole, onSelectReplay }:
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className="glass-panel p-4 rounded-xl flex flex-col justify-between border-indigo-500/20 bg-indigo-950/20 shadow-lg relative overflow-hidden group"
+          className="glass-panel p-4 rounded-xl flex flex-col justify-between border-indigo-500/20 bg-indigo-950/20 shadow-lg relative overflow-x-hidden group"
         >
           <div className="absolute inset-x-0 bottom-0 h-1 bg-indigo-500" />
           <span className="text-[9px] uppercase font-bold tracking-widest text-indigo-300 font-mono">Overall Rating</span>
@@ -473,7 +473,7 @@ export default function Dashboard({ currentUser, onSelectRole, onSelectReplay }:
         <p className="text-xs text-zinc-400 mb-4 text-left">Select a previous interview review sheet to analyze timing errors, speech metrics, and transcripts</p>
 
         {historyList.length > 0 ? (
-          <div className="divide-y divide-zinc-800 overflow-hidden border border-zinc-800 rounded-xl bg-zinc-950/40">
+          <div className="divide-y divide-zinc-800 overflow-x-hidden border border-zinc-800 rounded-xl bg-zinc-950/40">
             {historyList.map((hist) => (
               <div 
                 key={hist.id} 

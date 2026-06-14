@@ -179,7 +179,7 @@ export default function CareerRoadmaps({ currentUser }: CareerRoadmapsProps) {
               <div className="space-y-3">
                 <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-400 font-mono">Weekly Milestone Tracks</h4>
                 {activeRoadmap.weeklyRoadmap.map((wk: any, idx: number) => (
-                  <div key={idx} className="bg-white border border-slate-200 rounded-lg p-3.5 shadow-2xs hover:border-slate-300 transition-all relative overflow-hidden">
+                  <div key={idx} className="bg-white border border-slate-200 rounded-lg p-3.5 shadow-2xs hover:border-slate-300 transition-all relative overflow-x-hidden">
                     <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-600" />
                     <div className="flex justify-between items-start">
                       <span className="text-xs font-black text-blue-800 font-mono uppercase bg-blue-50 px-1.5 py-0.5 rounded">{wk.week}</span>

@@ -225,7 +225,7 @@ export default function QAVideoAnalyzer() {
           </div>
 
           {/* AI Model answer proposed display */}
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 space-y-2 relative overflow-hidden">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 space-y-2 relative overflow-x-hidden">
             <div className="absolute right-0 top-0 h-12 w-12 bg-blue-600/5 rounded-full pointer-events-none blur-md" />
             <h4 className="text-xs font-bold text-blue-800 flex items-center gap-1.5 uppercase font-mono">
               <Lightbulb className="h-4.5 w-4.5 text-amber-500 fill-amber-300 animate-bounce" /> Proposed Improved AI Model Answer

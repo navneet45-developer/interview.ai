@@ -208,7 +208,7 @@ async function autoSeedDemoBTechUser() {
     }
 
     // Admin
-    const adminEmail = 'admin@btech.edu';
+    const adminEmail = 'btech.eduadmin@';
     if (!await User.findOne({ email: adminEmail })) {
       console.log("🌱 Creating admin 'admin@btech.edu'...");
       await new User({
