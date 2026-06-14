@@ -1,0 +1,572 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Base resets & custom animations */
+html, body {
+  background-color: #030303 !important;
+  color: #f4f4f5 !important;
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(3, 3, 3, 0.4);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(63, 63, 70, 0.4);
+  border-radius: 9999px;
+  transition: all 0.2s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(113, 113, 122, 0.7);
+}
+
+/* Animations */
+@keyframes aurora-spin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.15); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes grid-slow-shift {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.05); }
+}
+
+@keyframes float-dust {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  20% { opacity: 0.4; }
+  80% { opacity: 0.4; }
+  100% { transform: translateY(-80px) rotate(360deg); opacity: 0; }
+}
+
+/* Design Utilities */
+.aurora-bg {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(100px);
+  opacity: 0.15;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: aurora-spin 25s infinite linear;
+}
+
+.subtle-grid {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, var(--theme-subtle-grid-color, rgba(244, 244, 245, 0.015)) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--theme-subtle-grid-color, rgba(244, 244, 245, 0.015)) 1px, transparent 1px);
+  animation: grid-slow-shift 40s linear infinite;
+}
+
+/* Elegant glassmorphic components */
+.glass-panel {
+  background: var(--theme-card-bg, rgba(9, 9, 11, 0.45)) !important;
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid var(--theme-card-border, rgba(255, 255, 255, 0.055)) !important;
+  box-shadow: var(--theme-card-shadow, 0 8px 32px 0 rgba(0, 0, 0, 0.5)) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: var(--theme-card-bg, rgba(15, 15, 20, 0.65)) !important;
+  border-color: var(--theme-accent, rgba(255, 255, 255, 0.095)) !important;
+  box-shadow: var(--theme-card-shadow, 0 12px 40px 0 rgba(0, 0, 0, 0.7)) !important;
+  transform: translateY(-2px);
+}
+
+/* Glowing text effects */
+.glow-text-blue {
+  text-shadow: 0 0 18px rgba(59, 130, 246, 0.3);
+}
+
+.glow-text-purple {
+  text-shadow: 0 0 18px rgba(168, 85, 247, 0.3);
+}
+
+/* Dynamic theme declarations */
+.theme-slate_midnight {
+  --theme-bg: #030303;
+  --theme-text-heading: #ffffff;
+  --theme-text-description: #e4e4e7;
+  --theme-text-secondary: #d4d4d8;
+  --theme-text-muted: #a1a1aa;
+  --theme-text-primary: #ffffff;
+  --theme-card-bg: rgba(9, 9, 11, 0.455);
+  --theme-card-border: rgba(255, 255, 255, 0.055);
+  --theme-card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  --theme-input-bg: rgba(24, 24, 27, 0.6);
+  --theme-input-border: rgba(255, 255, 255, 0.07);
+  --theme-input-text: #fafafa;
+  --theme-accent: #6366f1;
+  --theme-accent-glow: rgba(99, 102, 241, 0.12);
+  --theme-subtle-grid-color: rgba(244, 244, 245, 0.015);
+}
+
+.theme-cyber_glass {
+  --theme-bg: #020204;
+  --theme-text-heading: #ffffff;
+  --theme-text-description: #e4e4e7;
+  --theme-text-secondary: #d4d4d8;
+  --theme-text-muted: #a1a1aa;
+  --theme-text-primary: #ffffff;
+  --theme-card-bg: rgba(13, 9, 20, 0.5);
+  --theme-card-border: rgba(244, 63, 94, 0.15);
+  --theme-card-shadow: 0 8px 32px 0 rgba(244, 63, 94, 0.1);
+  --theme-input-bg: rgba(18, 12, 28, 0.7);
+  --theme-input-border: rgba(244, 63, 94, 0.25);
+  --theme-input-text: #f4f4f5;
+  --theme-accent: #f43f5e;
+  --theme-accent-glow: rgba(244, 63, 94, 0.15);
+  --theme-subtle-grid-color: rgba(244, 63, 94, 0.02);
+}
+
+.theme-fuchsia_cosmos {
+  --theme-bg: #05030d;
+  --theme-text-heading: #ffffff;
+  --theme-text-description: #e4e4e7;
+  --theme-text-secondary: #d4d4d8;
+  --theme-text-muted: #a1a1aa;
+  --theme-text-primary: #ffffff;
+  --theme-card-bg: rgba(18, 12, 38, 0.5);
+  --theme-card-border: rgba(217, 70, 239, 0.12);
+  --theme-card-shadow: 0 8px 32px 0 rgba(217, 70, 239, 0.1);
+  --theme-input-bg: rgba(22, 16, 44, 0.6);
+  --theme-input-border: rgba(217, 70, 239, 0.25);
+  --theme-input-text: #f5f3ff;
+  --theme-accent: #d946ef;
+  --theme-accent-glow: rgba(217, 70, 239, 0.15);
+  --theme-subtle-grid-color: rgba(217, 70, 239, 0.015);
+}
+
+.theme-academic_day {
+  --theme-bg: #f8fafc;
+  --theme-text-heading: #0f172a;
+  --theme-text-description: #1e293b;
+  --theme-text-secondary: #334155;
+  --theme-text-muted: #475569;
+  --theme-text-primary: #0f172a;
+  --theme-card-bg: rgba(255, 255, 255, 0.75);
+  --theme-card-border: rgba(15, 23, 42, 0.08);
+  --theme-card-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.06);
+  --theme-input-bg: rgba(255, 255, 255, 0.9);
+  --theme-input-border: rgba(15, 23, 42, 0.12);
+  --theme-input-text: #0f172a;
+  --theme-accent: #3b82f6;
+  --theme-accent-glow: rgba(59, 130, 246, 0.1);
+  --theme-subtle-grid-color: rgba(15, 23, 42, 0.03);
+}
+
+.theme-mint_aurora {
+  --theme-bg: #f0fdf4;
+  --theme-text-heading: #022c22;
+  --theme-text-description: #064e3b;
+  --theme-text-secondary: #065f46;
+  --theme-text-muted: #0f766e;
+  --theme-text-primary: #064e3b;
+  --theme-card-bg: rgba(255, 255, 255, 0.8);
+  --theme-card-border: rgba(16, 185, 129, 0.15);
+  --theme-card-shadow: 0 8px 32px 0 rgba(16, 185, 129, 0.05);
+  --theme-input-bg: rgba(255, 255, 255, 0.9);
+  --theme-input-border: rgba(16, 185, 129, 0.2);
+  --theme-input-text: #064e43;
+  --theme-accent: #10b981;
+  --theme-accent-glow: rgba(16, 185, 129, 0.12);
+  --theme-subtle-grid-color: rgba(16, 185, 129, 0.03);
+}
+
+/* Dynamic theme custom overrides application */
+.theme-academic_day,
+.theme-slate_midnight,
+.theme-cyber_glass,
+.theme-mint_aurora,
+.theme-fuchsia_cosmos {
+  background-color: var(--theme-bg) !important;
+  color: var(--theme-text-description) !important;
+
+  /* Form & inputs */
+  input, select, textarea {
+    background-color: var(--theme-input-bg) !important;
+    border-color: var(--theme-input-border) !important;
+    color: var(--theme-input-text) !important;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: var(--theme-text-muted) !important;
+    opacity: 0.9 !important;
+  }
+
+  /* Override hardcoded text colors for universal dark components matching, except inside buttons, links, selects, and options */
+  p:not(button *):not(a *), 
+  span:not(button *):not(a *):not(select *):not(option *), 
+  h1:not(button *):not(a *), 
+  h2:not(button *):not(a *), 
+  h3:not(button *):not(a *), 
+  h4:not(button *):not(a *), 
+  li:not(button *):not(a *), 
+  label:not(button *):not(a *), 
+  strong:not(button *):not(a *) {
+    &:not(.text-emerald-500):not(.text-red-500):not(.text-amber-500):not(.text-blue-500):not(.text-violet-400):not(.text-purple-400):not(.text-emerald-400):not(.text-indigo-400):not(.text-blue-400):not(.text-amber-400):not(.text-rose-400):not(.text-fuchsia-400):not(.text-indigo-300):not(.text-emerald-300):not(.text-red-300):not(.text-emerald-800):not(.text-emerald-700):not(.text-emerald-600):not(.text-amber-800):not(.text-amber-700):not(.text-red-800):not(.text-red-700) {
+      color: var(--theme-text-description) !important;
+    }
+  }
+
+  .text-white, .text-zinc-100, .text-slate-100, .text-zinc-200, .text-slate-200 {
+    color: var(--theme-text-heading) !important;
+  }
+
+  .text-zinc-400, .text-slate-400, .text-zinc-300, .text-slate-300, .text-slate-350, .text-zinc-500, .text-slate-500 {
+    color: var(--theme-text-secondary) !important;
+  }
+
+  /* Structural borders */
+  .border, .border-zinc-800, .border-slate-800, .border-zinc-900, .border-zinc-850, .border-slate-700, .border-zinc-700\/60, .border-slate-200 {
+    border-color: var(--theme-card-border) !important;
+  }
+
+  .divide-zinc-800 > :not([hidden]) ~ :not([hidden]) {
+    border-color: var(--theme-card-border) !important;
+  }
+
+  /* Custom overlays or dynamic elements */
+  .bg-zinc-950, .bg-zinc-950\/80, .bg-zinc-950\/60, .bg-indigo-950\/20, .bg-zinc-900, .bg-[#09090b]\/95 {
+    background-color: var(--theme-input-bg) !important;
+    border-color: var(--theme-card-border) !important;
+  }
+
+  .text-zinc-450, .text-zinc-455, .text-zinc-460 {
+    color: var(--theme-text-secondary) !important;
+  }
+
+  /* Override background for specific containers like the operations & themes drop-down centers */
+  #header-ops-dropdown-panel, #header-theme-dropdown-panel {
+    background-color: var(--theme-input-bg) !important;
+    border-color: var(--theme-card-border) !important;
+    box-shadow: var(--theme-card-shadow) !important;
+  }
+
+  #app-header {
+    background-color: var(--theme-card-bg) !important;
+    backdrop-filter: blur(12px) saturate(140%) !important;
+    border-bottom-color: var(--theme-card-border) !important;
+  }
+
+  #high-density-footer {
+    background-color: var(--theme-input-bg) !important;
+    border-top-color: var(--theme-card-border) !important;
+    color: var(--theme-text-muted) !important;
+  }
+
+  #high-density-footer div {
+    color: var(--theme-text-muted) !important;
+  }
+
+  /* Remove dynamic text/layout opacities that wash out readability */
+  *, *::before, *::after {
+    --tw-text-opacity: 1.0 !important;
+  }
+
+  .opacity-95, .opacity-90, .opacity-85, .opacity-80, .opacity-75, .opacity-70, .opacity-65, .opacity-60, .opacity-55, .opacity-50, .opacity-45, .opacity-40, .opacity-35, .opacity-30 {
+    opacity: 1.0 !important;
+  }
+
+  /* Support high-contrast visual standards for multimodal thesis and diagnostic components */
+  #multimodal-diagnostic-guideline {
+    background-color: var(--theme-input-bg) !important;
+    border-color: var(--theme-card-border) !important;
+  }
+
+  #multimodal-diagnostic-guideline h4 {
+    background-color: var(--theme-card-bg) !important;
+    border-color: var(--theme-card-border) !important;
+    color: var(--theme-text-heading) !important;
+  }
+
+  #multimodal-diagnostic-guideline p {
+    color: var(--theme-text-description) !important;
+  }
+
+  #multimodal-diagnostic-guideline strong {
+    color: var(--theme-text-heading) !important;
+    font-weight: 700 !important;
+  }
+
+  /* Support subtle background-aware button hovers universally */
+  button:hover:not(.bg-indigo-600):not(.bg-emerald-600):not(.bg-red-650):not(.bg-amber-600):not(.bg-blue-600):not(.rounded-full) {
+    background-color: rgba(125, 125, 125, 0.15) !important;
+    color: var(--theme-text-primary) !important;
+  }
+}
+
+/* ------------------ DEEP CONTRAST & ADAPTIVE PANEL LAWS FOR DARK THEMES ------------------ */
+
+/* 1. Automatically transform all hardcoded light-colored cards/panels/sections into dark container panes for dark themes */
+.theme-slate_midnight .bg-white,
+.theme-slate_midnight .bg-slate-50,
+.theme-slate_midnight .bg-slate-100,
+.theme-slate_midnight .bg-slate-200,
+.theme-slate_midnight .bg-zinc-50,
+.theme-slate_midnight .bg-zinc-100,
+.theme-slate_midnight .bg-zinc-200,
+.theme-slate_midnight .bg-gray-50,
+.theme-slate_midnight .bg-gray-100,
+.theme-slate_midnight .bg-slate-55,
+.theme-slate_midnight .bg-slate-50\/50,
+.theme-slate_midnight .bg-slate-50\/30,
+.theme-slate_midnight .bg-slate-100\/50,
+.theme-slate_midnight .bg-slate-50\/20,
+.theme-slate_midnight .bg-zinc-50\/50,
+.theme-slate_midnight .bg-white\/80,
+.theme-slate_midnight .bg-white\/95,
+.theme-slate_midnight .bg-\[\#f8fafc\],
+
+.theme-cyber_glass .bg-white,
+.theme-cyber_glass .bg-slate-50,
+.theme-cyber_glass .bg-slate-100,
+.theme-cyber_glass .bg-slate-200,
+.theme-cyber_glass .bg-zinc-50,
+.theme-cyber_glass .bg-zinc-100,
+.theme-cyber_glass .bg-zinc-200,
+.theme-cyber_glass .bg-gray-50,
+.theme-cyber_glass .bg-gray-100,
+.theme-cyber_glass .bg-slate-55,
+.theme-cyber_glass .bg-slate-50\/50,
+.theme-cyber_glass .bg-slate-50\/30,
+.theme-cyber_glass .bg-slate-100\/50,
+.theme-cyber_glass .bg-slate-50\/20,
+.theme-cyber_glass .bg-zinc-50\/50,
+.theme-cyber_glass .bg-white\/80,
+.theme-cyber_glass .bg-white\/95,
+.theme-cyber_glass .bg-\[\#f8fafc\],
+
+.theme-fuchsia_cosmos .bg-white,
+.theme-fuchsia_cosmos .bg-slate-50,
+.theme-fuchsia_cosmos .bg-slate-100,
+.theme-fuchsia_cosmos .bg-slate-200,
+.theme-fuchsia_cosmos .bg-zinc-50,
+.theme-fuchsia_cosmos .bg-zinc-100,
+.theme-fuchsia_cosmos .bg-zinc-200,
+.theme-fuchsia_cosmos .bg-gray-50,
+.theme-fuchsia_cosmos .bg-gray-100,
+.theme-fuchsia_cosmos .bg-slate-55,
+.theme-fuchsia_cosmos .bg-slate-50\/50,
+.theme-fuchsia_cosmos .bg-slate-50\/30,
+.theme-fuchsia_cosmos .bg-slate-100\/50,
+.theme-fuchsia_cosmos .bg-slate-50\/20,
+.theme-fuchsia_cosmos .bg-zinc-50\/50,
+.theme-fuchsia_cosmos .bg-white\/80,
+.theme-fuchsia_cosmos .bg-white\/95,
+.theme-fuchsia_cosmos .bg-\[\#f8fafc\] {
+  background-color: var(--theme-input-bg) !important;
+  border-color: var(--theme-card-border) !important;
+  color: var(--theme-text-description) !important;
+}
+
+/* 2. Map container hovers within dark grids safely */
+.theme-slate_midnight .hover\:bg-slate-100:hover,
+.theme-slate_midnight .hover\:bg-slate-50\/50:hover,
+.theme-slate_midnight .hover\:bg-slate-100\/50:hover,
+.theme-slate_midnight .hover\:bg-zinc-100:hover,
+.theme-slate_midnight .hover\:bg-gray-100:hover,
+
+.theme-cyber_glass .hover\:bg-slate-100:hover,
+.theme-cyber_glass .hover\:bg-slate-50\/50:hover,
+.theme-cyber_glass .hover\:bg-slate-100\/50:hover,
+.theme-cyber_glass .hover\:bg-zinc-100:hover,
+.theme-cyber_glass .hover\:bg-gray-100:hover,
+
+.theme-fuchsia_cosmos .hover\:bg-slate-100:hover,
+.theme-fuchsia_cosmos .hover\:bg-slate-50\/50:hover,
+.theme-fuchsia_cosmos .hover\:bg-slate-100\/50:hover,
+.theme-fuchsia_cosmos .hover\:bg-zinc-100:hover,
+.theme-fuchsia_cosmos .hover\:bg-gray-100:hover {
+  background-color: var(--theme-card-bg) !important;
+  border-color: var(--theme-accent) !important;
+}
+
+/* 3. Automatically map hardcoded dark-contrast text values to clean, readable white/light colors for dark themes */
+.theme-slate_midnight .text-slate-900,
+.theme-slate_midnight .text-slate-800,
+.theme-slate_midnight .text-slate-700,
+.theme-slate_midnight .text-slate-650,
+.theme-slate_midnight .text-slate-600,
+.theme-slate_midnight .text-zinc-900,
+.theme-slate_midnight .text-zinc-800,
+.theme-slate_midnight .text-zinc-700,
+.theme-slate_midnight .text-zinc-650,
+.theme-slate_midnight .text-zinc-600,
+.theme-slate_midnight .text-gray-900,
+.theme-slate_midnight .text-gray-800,
+.theme-slate_midnight .text-gray-700,
+.theme-slate_midnight .text-gray-650,
+.theme-slate_midnight .text-gray-600,
+
+.theme-cyber_glass .text-slate-900,
+.theme-cyber_glass .text-slate-800,
+.theme-cyber_glass .text-slate-700,
+.theme-cyber_glass .text-slate-650,
+.theme-cyber_glass .text-slate-600,
+.theme-cyber_glass .text-zinc-900,
+.theme-cyber_glass .text-zinc-800,
+.theme-cyber_glass .text-zinc-700,
+.theme-cyber_glass .text-zinc-650,
+.theme-cyber_glass .text-zinc-600,
+.theme-cyber_glass .text-gray-900,
+.theme-cyber_glass .text-gray-800,
+.theme-cyber_glass .text-gray-700,
+.theme-cyber_glass .text-gray-650,
+.theme-cyber_glass .text-gray-600,
+
+.theme-fuchsia_cosmos .text-slate-900,
+.theme-fuchsia_cosmos .text-slate-800,
+.theme-fuchsia_cosmos .text-slate-700,
+.theme-fuchsia_cosmos .text-slate-650,
+.theme-fuchsia_cosmos .text-slate-600,
+.theme-fuchsia_cosmos .text-zinc-900,
+.theme-fuchsia_cosmos .text-zinc-800,
+.theme-fuchsia_cosmos .text-zinc-700,
+.theme-fuchsia_cosmos .text-zinc-650,
+.theme-fuchsia_cosmos .text-zinc-600,
+.theme-fuchsia_cosmos .text-gray-900,
+.theme-fuchsia_cosmos .text-gray-800,
+.theme-fuchsia_cosmos .text-gray-700,
+.theme-fuchsia_cosmos .text-gray-650,
+.theme-fuchsia_cosmos .text-gray-600 {
+  color: var(--theme-text-heading) !important;
+}
+
+/* 4. Map medium-gray tailwind body text nicely to high visibility text-description for dark themes */
+.theme-slate_midnight .text-slate-500,
+.theme-slate_midnight .text-slate-400,
+.theme-slate_midnight .text-zinc-500,
+.theme-slate_midnight .text-zinc-400,
+.theme-slate_midnight .text-gray-500,
+.theme-slate_midnight .text-gray-400,
+
+.theme-cyber_glass .text-slate-500,
+.theme-cyber_glass .text-slate-400,
+.theme-cyber_glass .text-zinc-500,
+.theme-cyber_glass .text-zinc-400,
+.theme-cyber_glass .text-gray-500,
+.theme-cyber_glass .text-gray-400,
+
+.theme-fuchsia_cosmos .text-slate-500,
+.theme-fuchsia_cosmos .text-slate-400,
+.theme-fuchsia_cosmos .text-zinc-500,
+.theme-fuchsia_cosmos .text-zinc-400,
+.theme-fuchsia_cosmos .text-gray-500,
+.theme-fuchsia_cosmos .text-gray-400 {
+  color: var(--theme-text-secondary) !important;
+}
+
+/* 5. Force all tag elements to stay incredibly visible in dark modes */
+.theme-slate_midnight h1, .theme-slate_midnight h2, .theme-slate_midnight h3, .theme-slate_midnight h4, .theme-slate_midnight h5, .theme-slate_midnight h6,
+.theme-cyber_glass h1, .theme-cyber_glass h2, .theme-cyber_glass h3, .theme-cyber_glass h4, .theme-cyber_glass h5, .theme-cyber_glass h6,
+.theme-fuchsia_cosmos h1, .theme-fuchsia_cosmos h2, .theme-fuchsia_cosmos h3, .theme-fuchsia_cosmos h4, .theme-fuchsia_cosmos h5, .theme-fuchsia_cosmos h6 {
+  color: var(--theme-text-heading) !important;
+}
+
+.theme-slate_midnight p, .theme-slate_midnight span, .theme-slate_midnight li, .theme-slate_midnight label, .theme-slate_midnight strong,
+.theme-cyber_glass p, .theme-cyber_glass span, .theme-cyber_glass li, .theme-cyber_glass label, .theme-cyber_glass strong,
+.theme-fuchsia_cosmos p, .theme-fuchsia_cosmos span, .theme-fuchsia_cosmos li, .theme-fuchsia_cosmos label, .theme-fuchsia_cosmos strong {
+  color: var(--theme-text-description) !important;
+}
+
+.theme-slate_midnight strong, .theme-cyber_glass strong, .theme-fuchsia_cosmos strong {
+  color: var(--theme-text-heading) !important;
+  font-weight: bold !important;
+}
+
+/* 6. Structural borders and layout lines mapped to card border colors */
+.theme-slate_midnight .border-slate-200, .theme-slate_midnight .border-zinc-200, .theme-slate_midnight .border-gray-200,
+.theme-cyber_glass .border-slate-200, .theme-cyber_glass .border-zinc-200, .theme-cyber_glass .border-gray-200,
+.theme-fuchsia_cosmos .border-slate-200, .theme-fuchsia_cosmos .border-zinc-200, .theme-fuchsia_cosmos .border-gray-200 {
+  border-color: var(--theme-card-border) !important;
+}
+
+/* ------------------ ACCESSIBLE ALERT DECORATIVE OVERRIDES ON DARK THEMES ------------------ */
+.theme-slate_midnight, .theme-cyber_glass, .theme-fuchsia_cosmos {
+  /* Green Success Alert Overrides */
+  .bg-emerald-50, .bg-emerald-50\/50, .bg-emerald-950\/45, .bg-emerald-950\/20, .bg-emerald-500\/10, .bg-emerald-950\/60 {
+    background-color: rgba(16, 185, 129, 0.08) !important;
+    border-color: rgba(16, 185, 129, 0.25) !important;
+  }
+  .text-emerald-800, .text-emerald-700, .text-emerald-600, .text-emerald-950, .text-emerald-900 {
+    color: #6ee7b7 !important; /* light high-contrast teal-300 */
+  }
+  .text-emerald-500, .text-emerald-400, .text-emerald-300 {
+    color: #34d399 !important; /* light teal-400 */
+  }
+
+  /* Red Error Alert Overrides */
+  .bg-red-50, .bg-red-50\/50, .bg-red-950\/45, .bg-red-950\/20, .bg-red-500\/10, .bg-rose-500\/10 {
+    background-color: rgba(239, 68, 68, 0.08) !important;
+    border-color: rgba(239, 68, 68, 0.25) !important;
+  }
+  .text-red-800, .text-red-700, .text-red-600, .text-rose-900, .text-rose-800 {
+    color: #fca5a5 !important; /* red-300 */
+  }
+  .text-red-500, .text-red-400, .text-rose-400, .text-rose-500 {
+    color: #f87171 !important; /* red-400 */
+  }
+
+  /* Amber/Warning Overrides */
+  .bg-amber-50, .bg-amber-50\/50, .bg-amber-950\/45, .bg-amber-950\/20, .bg-amber-500\/10 {
+    background-color: rgba(245, 158, 11, 0.07) !important;
+    border-color: rgba(245, 158, 11, 0.22) !important;
+  }
+  .text-amber-800, .text-amber-700, .text-amber-600, .text-amber-950, .text-amber-900 {
+    color: #fde047 !important; /* yellow-300 */
+  }
+  .text-amber-500, .text-amber-400, .text-amber-300 {
+    color: #facc15 !important; /* yellow-400 */
+  }
+
+  /* Blue Information Overrides */
+  .bg-blue-50, .bg-blue-50\/50, .bg-blue-950\/20, .bg-blue-500\/10 {
+    background-color: rgba(59, 130, 246, 0.08) !important;
+    border-color: rgba(59, 130, 246, 0.25) !important;
+  }
+  .text-blue-800, .text-blue-700, .text-blue-600, .text-indigo-900 {
+    color: #93c5fd !important; /* blue-300 */
+  }
+  .text-blue-500, .text-blue-400, .text-blue-300, .text-indigo-400 {
+    color: #60a5fa !important; /* blue-400 */
+  }
+}
+
+/* Custom visual micro-details */
+.glowing-radar {
+  box-shadow: 0 0 20px var(--theme-accent-glow, rgba(168, 85, 247, 0.15));
+}
+
+.interactive-cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, var(--theme-accent-glow, rgba(99, 102, 241, 0.08)) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  transition: transform 0.1s cubic-bezier(0.16, 1, 0.3, 1);
+}

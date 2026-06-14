@@ -1,0 +1,6 @@
+{
+  "name": "interview.ai",
+  "description": "An interactive, production-ready AI Interviewer and Replay Analyzer featuring role-based question generation, real-time audio response coaching, filler word detection, speed stats, and facial interest simulations.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
